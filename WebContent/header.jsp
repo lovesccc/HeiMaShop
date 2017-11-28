@@ -54,21 +54,35 @@
             <%--ajax 异步获取分类信息--%>
             $(function () {
                 var content = "";
-                $.post(
-                    "${pageContext.request.contextPath}/product?method=CategoryList",
-                    function (data) {
-//                        [{"cid":"xxx","cname":"xxxx"},{},{}]
-                        <%--动态创建<li><a href="#">${category.cname }</a></li>--%>
+//                自己用jquery写的ajax
+                $.ajax({
+                    "url":"${pageContext.request.contextPath}/product?method=CategoryList",
+                    "async":true,
+                    "type":"POST",
+                    "dataType":"json",
+                    "success":function(data){
                         for (var i=0;i<data.length;i++){
 //                            实现点击导航条，显示对应的商品分页信息
                             content = content + "<li><a href='${pageContext.request.contextPath}/product?method=ProductListByCid&cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";
                         }
-//                        将拼接好的li放到ul中
-//
                         $("#categoryUI").html(content);
-                    },
-                    "json"
-                );
+                    }
+                });
+                <%--$.post(--%>
+                    <%--"${pageContext.request.contextPath}/product?method=CategoryList",--%>
+                    <%--function (data) {--%>
+<%--//                        [{"cid":"xxx","cname":"xxxx"},{},{}]--%>
+                        <%--&lt;%&ndash;动态创建<li><a href="#">${category.cname }</a></li>&ndash;%&gt;--%>
+                        <%--for (var i=0;i<data.length;i++){--%>
+<%--//                            实现点击导航条，显示对应的商品分页信息--%>
+                            <%--content = content + "<li><a href='${pageContext.request.contextPath}/product?method=ProductListByCid&cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";--%>
+                        <%--}--%>
+<%--//                        将拼接好的li放到ul中--%>
+<%--//--%>
+                        <%--$("#categoryUI").html(content);--%>
+                    <%--},--%>
+                    <%--"json"--%>
+                <%--);--%>
             });
         </script>
 	</nav>
