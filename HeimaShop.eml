@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="1.7" jdk_type="JavaSDK">
+	<exclude-output/>
+	<contentEntry url="file://G:/myeclipse——git/HeimaShop"/>
+	<levels>
+		<level name="Java EE 6-Java EE 6" value="project"/>
+	</levels>
+</component>
