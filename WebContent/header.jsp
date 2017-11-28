@@ -60,7 +60,8 @@
 //                        [{"cid":"xxx","cname":"xxxx"},{},{}]
                         <%--动态创建<li><a href="#">${category.cname }</a></li>--%>
                         for (var i=0;i<data.length;i++){
-                            content = content + "<li><a href='javascript:void(0);'>"+data[i].cname+"</a></li>";
+//                            实现点击导航条，显示对应的商品分页信息
+                            content = content + "<li><a href='${pageContext.request.contextPath}/productListByCidServlet?cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";
                         }
 //                        将拼接好的li放到ul中
 //
