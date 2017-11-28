@@ -40,7 +40,7 @@ body {
 		</div>
 		<c:forEach items="${pageBean.list}" var="pro">
 			<div class="col-md-2" style="height: 250px">
-				<a href="${pageContext.request.contextPath}/productFindByIdServlet?cid=${cid}&pid=${pro.pid}&currentPage=${pageBean.currentPage}"> <img src="${pageContext.request.contextPath}/${pro.pimage}" width="170" height="170" style="display: inline-block;">
+				<a href="${pageContext.request.contextPath}/product?method=ProductFindById&cid=${cid}&pid=${pro.pid}&currentPage=${pageBean.currentPage}"> <img src="${pageContext.request.contextPath}/${pro.pimage}" width="170" height="170" style="display: inline-block;">
 				</a>
 				<p>
 					<a href="product_info.html" style='color: green'>${pro.pname}</a>
@@ -63,7 +63,7 @@ body {
 			</c:if>
 			<c:if test="${pageBean.currentPage !=1}">
 				<li>
-					<a href="${pageContext.request.contextPath}/productListByCidServlet?cid=${cid}&currentPage=${pageBean.currentPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+					<a href="${pageContext.request.contextPath}/product?method=ProductListByCid&cid=${cid}&currentPage=${pageBean.currentPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
 				</li>
 			</c:if>
 
@@ -71,10 +71,10 @@ body {
 			<%--显示每一页--%>
 			<c:forEach begin="1" end="${pageBean.totalPage}" var="page">
 				<c:if test="${pageBean.currentPage==page}">
-					<li class="active"><a href="${pageContext.request.contextPath}/productListByCidServlet?cid=${cid}&currentPage=${page}">${page}</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/product?method=ProductListByCid&cid=${cid}&currentPage=${page}">${page}</a></li>
 				</c:if>
 				<c:if test="${pageBean.currentPage!=page}">
-					<li><a href="${pageContext.request.contextPath}/productListByCidServlet?cid=${cid}&currentPage=${page}">${page}</a></li>
+					<li><a href="${pageContext.request.contextPath}/product?method=ProductListByCid&cid=${cid}&currentPage=${page}">${page}</a></li>
 				</c:if>
 			</c:forEach>
 
@@ -83,7 +83,7 @@ body {
 				<li class="disabled"><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 				</c:if>
 				<c:if test="${pageBean.currentPage!=pageBean.totalPage}">
-					<li><a href="${pageContext.request.contextPath}/productListByCidServlet?cid=${cid}&currentPage=${pageBean.currentPage+1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+					<li><a href="${pageContext.request.contextPath}/product?method=ProductListByCid&cid=${cid}&currentPage=${pageBean.currentPage+1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 				</c:if>
 			</a></li>
 		</ul>

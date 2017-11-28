@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-    response.sendRedirect(request.getContextPath()+"/indexServlet");
+    response.sendRedirect(request.getContextPath()+"/product?method=Index");
 %>
 </body>
 </html>

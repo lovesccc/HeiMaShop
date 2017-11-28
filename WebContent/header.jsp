@@ -55,13 +55,13 @@
             $(function () {
                 var content = "";
                 $.post(
-                    "${pageContext.request.contextPath}/categoryList",
+                    "${pageContext.request.contextPath}/product?method=CategoryList",
                     function (data) {
 //                        [{"cid":"xxx","cname":"xxxx"},{},{}]
                         <%--动态创建<li><a href="#">${category.cname }</a></li>--%>
                         for (var i=0;i<data.length;i++){
 //                            实现点击导航条，显示对应的商品分页信息
-                            content = content + "<li><a href='${pageContext.request.contextPath}/productListByCidServlet?cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";
+                            content = content + "<li><a href='${pageContext.request.contextPath}/product?method=ProductListByCid&cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";
                         }
 //                        将拼接好的li放到ul中
 //

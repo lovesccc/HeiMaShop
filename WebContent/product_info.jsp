@@ -78,7 +78,7 @@ body {
 								value="加入购物车" type="button">
 							</a> &nbsp;收藏商品
 						</div>
-						<div><span><a href="${pageContext.request.contextPath}/productListByCidServlet?cid=${cid}&currentPage=${currentPage}">
+						<div><span><a href="${pageContext.request.contextPath}/product?method=ProductListByCid&cid=${cid}&currentPage=${currentPage}">
 							返回
 						</a></span></div>
 					</div>
