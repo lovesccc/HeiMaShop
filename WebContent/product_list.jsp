@@ -40,7 +40,8 @@ body {
 		</div>
 		<c:forEach items="${pageBean.list}" var="pro">
 			<div class="col-md-2" style="height: 250px">
-				<a href="${pageContext.request.contextPath}/product?method=ProductFindById&cid=${cid}&pid=${pro.pid}&currentPage=${pageBean.currentPage}"> <img src="${pageContext.request.contextPath}/${pro.pimage}" width="170" height="170" style="display: inline-block;">
+				<a href="${pageContext.request.contextPath}/product?method=ProductFindById&cid=${cid}&pid=${pro.pid}&currentPage=${pageBean.currentPage}">
+					<img src="${pageContext.request.contextPath}/${pro.pimage}" width="170" height="170" style="display: inline-block;">
 				</a>
 				<p>
 					<a href="product_info.html" style='color: green'>${pro.pname}</a>

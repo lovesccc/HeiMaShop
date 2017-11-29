@@ -56,7 +56,7 @@ font {
 			//目的：对输入的username进行ajax校验
 			$.ajax({
 				"async":false,
-				"url":"${pageContext.request.contextPath}/checkUsername",
+				"url":"${pageContext.request.contextPath}/user?method=CheckUsername",
 				"data":{"username":value},
 				"type":"POST",
 				"dataType":"json",

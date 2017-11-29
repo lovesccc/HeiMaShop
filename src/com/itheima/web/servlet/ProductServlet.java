@@ -1,6 +1,7 @@
 package com.itheima.web.servlet;
 
 import com.google.gson.Gson;
+import  com.itheima.domain.Product;
 import com.itheima.domain.Category;
 import com.itheima.domain.PageBean;
 import com.itheima.service.ProductService;
@@ -10,7 +11,6 @@ import redis.clients.jedis.Jedis;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet(name = "Product")
-public class Product extends BaseServlet {
+public class ProductServlet extends BaseServlet {
 
 //* 根据id查询商品*/
     public void ProductFindById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -128,7 +128,7 @@ public class Product extends BaseServlet {
         int currentCount = 12;
 
 //    创建pagebean实例,接收ProductService传递的pagebean
-        PageBean<com.itheima.domain.Product> pageBean = new PageBean();
+        PageBean<Product> pageBean = new PageBean<>();
         pageBean = productService.findProductListByCid(cid,currentPage,currentCount);
 
 //    把pagebean存放到request作用域

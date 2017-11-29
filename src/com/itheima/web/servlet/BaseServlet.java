@@ -25,7 +25,13 @@ public class BaseServlet extends HttpServlet {
         try {
             Method getMethod = clazz.getMethod(method,HttpServletRequest.class,HttpServletResponse.class);
             getMethod.invoke(this,req,resp);
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            throw new RuntimeException("反射调用servlet方法失败"+e);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            throw new RuntimeException("反射调用servlet方法失败"+e);
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
             throw new RuntimeException("反射调用servlet方法失败"+e);
         }
